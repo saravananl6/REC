@@ -1,3 +1,4 @@
+old/
 static/videos/
 *.mp4
 *.MP4
@@ -6,4 +7,3 @@ static/videos/
 __pycache__/
 .env
 venv/
-old/
