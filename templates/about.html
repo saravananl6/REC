@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}About — Rajalakshmi Engineering College{% endblock %}
+
+{% block content %}
+<div class="inner-hero">
+  <div class="hero-orb" style="width:400px;height:400px;background:rgba(107,33,168,.2);top:-100px;right:-100px;filter:blur(80px);position:absolute"></div>
+  <div class="container-fluid px-5" style="position:relative;z-index:1">
+    <div class="inner-hero-tag">📖 Who We Are</div>
+    <h1>About <span class="text-gold">Rajalakshmi</span></h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,.6);margin-top:12px;max-width:600px">28 years of academic excellence, innovation, and nation-building through engineering education.</p>
+  </div>
+</div>
+
+<section style="padding:80px 0;background:var(--rec-dark)">
+  <div class="container-fluid px-5">
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="section-tag"><i class="fas fa-star"></i> Our Legacy</div>
+        <h2 class="section-title">A Legacy of <span>Excellence</span></h2>
+        <p style="color:rgba(255,255,255,.65);line-height:1.9;font-size:.95rem">Established in 1997, Rajalakshmi Engineering College has been at the forefront of technical education in Tamil Nadu. With NAAC A+ accreditation, NBA-accredited programs, and autonomous status granted by Anna University, REC stands as a beacon of quality engineering education.</p>
+        <p style="color:rgba(255,255,255,.55);line-height:1.9;font-size:.9rem;margin-top:16px">Our 135-acre campus, equipped with world-class infrastructure, over 550 expert faculty, and 50+ research centers, provides an unparalleled environment for holistic development.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px">
+          {% for num, label in [('NAAC A+','Accreditation'), ('NBA','Accredited Programs'), ('135 Acres','Campus Area')] %}
+          <div style="background:rgba(107,33,168,.1);border:1px solid rgba(107,33,168,.25);border-radius:14px;padding:20px;text-align:center">
+            <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;background:linear-gradient(135deg,#F59E0B,#FCD34D);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ num }}</div>
+            <div style="font-size:.72rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-top:6px">{{ label }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div style="position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(107,33,168,.3)">
+          <img src="{{ url_for('static', filename='images/life.jpg') }}" alt="REC Campus" style="width:100%;height:380px;object-fit:cover" onerror="this.style.background='linear-gradient(135deg,#1A0533,#4C1D95)';this.style.height='380px'">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,33,168,.3),transparent)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-purple my-5"></div>
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-tag"><i class="fas fa-users"></i> Leadership</div>
+      <h2 class="section-title">Our <span>Leadership Team</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px" data-aos="fade-up">
+      {% for name, role, img in [
+        ('Dr. N. Alagumurthi','Principal','https://i.pravatar.cc/150?img=15'),
+        ('Prof. S. Rajeswari','Dean Academics','https://i.pravatar.cc/150?img=5'),
+        ('Dr. K. Venkatesh','Dean R&D','https://i.pravatar.cc/150?img=8'),
+        ('Dr. P. Kavitha','Dean Student Affairs','https://i.pravatar.cc/150?img=25')
+      ] %}
+      <div class="rec-card text-center">
+        <img src="{{ img }}" alt="{{ name }}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:3px solid rgba(107,33,168,.4)">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:.95rem">{{ name }}</div>
+        <div style="font-size:.75rem;color:#9333EA;margin-top:4px">{{ role }}</div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="divider-purple my-5"></div>
+
+    <div data-aos="fade-up">
+      <div class="section-tag"><i class="fas fa-handshake"></i> Collaborations</div>
+      <h2 class="section-title">Global <span>Collaborations</span></h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px">
+        {% for inst in ['IIT Madras','NIT Trichy','Anna University','VIT University','MIT (USA)','NUS Singapore','Coventry University','IITB Research Park'] %}
+        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;text-align:center;font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:600;color:rgba(255,255,255,.7);transition:all .3s" onmouseenter="this.style.background='rgba(107,33,168,.15)';this.style.color='#fff'" onmouseleave="this.style.background='rgba(255,255,255,.03)';this.style.color='rgba(255,255,255,.7)'">
+          <i class="fas fa-university" style="color:#9333EA;font-size:1.5rem;display:block;margin-bottom:10px"></i>
+          {{ inst }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}NAAC Accreditation — REC{% endblock %}
+{% block content %}
+<div class="inner-hero">
+  <div class="hero-orb" style="width:400px;height:400px;background:rgba(107,33,168,.2);top:-100px;right:-100px;filter:blur(80px);position:absolute"></div>
+  <div class="container-fluid px-5" style="position:relative;z-index:1">
+    <div class="inner-hero-tag">🏆 Accreditation</div>
+    <h1>NAAC <span class="text-gold">A+ Accredited</span></h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,.6);margin-top:12px;max-width:600px">The highest accreditation grade awarded by the National Assessment and Accreditation Council of India.</p>
+  </div>
+</div>
+<section style="padding:80px 0;background:var(--rec-dark)">
+  <div class="container-fluid px-5">
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="section-tag mb-3"><i class="fas fa-award"></i> Our Achievements</div>
+        <h2 class="section-title">Quality <span>Assured</span></h2>
+        <p style="color:rgba(255,255,255,.65);line-height:1.9">REC received the prestigious NAAC A+ grade, recognizing our commitment to academic excellence, research output, student development, and institutional governance.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px">
+          {% for title, val in [('NAAC Grade','A+'),('CGPA Score','3.26/4.00'),('Year','2023'),('Valid Till','2028')] %}
+          <div style="background:rgba(107,33,168,.1);border:1px solid rgba(107,33,168,.3);border-radius:14px;padding:20px;text-align:center">
+            <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;background:linear-gradient(135deg,#F59E0B,#FCD34D);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ val }}</div>
+            <div style="font-size:.72rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-top:6px">{{ title }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div style="background:rgba(245,158,11,.05);border:2px solid rgba(245,158,11,.3);border-radius:30px;padding:48px;text-align:center">
+          <div style="font-size:5rem;margin-bottom:20px">🏆</div>
+          <div style="font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;background:linear-gradient(135deg,#F59E0B,#FCD34D);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">A+</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:16px">NAAC Accreditation</div>
+          <div style="font-size:.85rem;color:rgba(255,255,255,.4);margin-top:8px">National Assessment & Accreditation Council</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-purple my-5"></div>
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-tag"><i class="fas fa-list-check"></i> Other Accreditations</div>
+      <h2 class="section-title">Quality <span>Certifications</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px" data-aos="fade-up">
+      {% for name, body, desc in [
+        ('NBA Accredited','National Board of Accreditation','Multiple UG programs accredited'),
+        ('Autonomous College','Anna University','Since 2012 — full academic autonomy'),
+        ('ISO 9001:2015','Bureau Veritas','Quality management certified'),
+        ('NIRF Ranking','MoE, India','Ranked among top engineering colleges')
+      ] %}
+      <div class="rec-card text-center">
+        <div style="width:60px;height:60px;background:rgba(107,33,168,.2);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem">🎖️</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;margin-bottom:6px">{{ name }}</div>
+        <div style="font-size:.72rem;color:#9333EA;margin-bottom:8px">{{ body }}</div>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0">{{ desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

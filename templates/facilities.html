@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Facilities — REC{% endblock %}
+{% block content %}
+<div class="inner-hero">
+  <div class="hero-orb" style="width:400px;height:400px;background:rgba(107,33,168,.2);top:-100px;right:-100px;filter:blur(80px);position:absolute"></div>
+  <div class="container-fluid px-5" style="position:relative;z-index:1">
+    <div class="inner-hero-tag">🏛️ World-Class Facilities</div>
+    <h1>Infrastructure <span class="text-gold">Beyond Compare</span></h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,.6);margin-top:12px;max-width:600px">135 acres of world-class campus with cutting-edge facilities designed for modern engineering education.</p>
+  </div>
+</div>
+<section style="padding:80px 0;background:var(--rec-dark)">
+  <div class="container-fluid px-5">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" data-aos="fade-up">
+      {% for icon, title, items in [
+        ('📚','Central Library',['1,00,000+ Books','DELNET E-Library Access','24/7 Reading Rooms','Digital Journals']),
+        ('🏋️','Sports Complex',['Olympic-size Swimming Pool','Synthetic Cricket Ground','Indoor Sports Courts','Modern Gymnasium']),
+        ('🏠','Hostel Facilities',['Separate Boys & Girls Hostels','AC & Non-AC Rooms','24/7 Wi-Fi & Security','Mess with Nutritious Food']),
+        ('💻','Computer Labs',['5000+ Computers','High-Speed Internet','24/7 Lab Access','Cloud Computing Infra']),
+        ('🔬','Research Labs',['50+ Specialized Labs','Advanced Instrumentation','Industry-Grade Equipment','Clean Room Facility']),
+        ('🍽️','Cafeteria & Canteen',['Hygienic Food Court','Multiple Cuisine Options','Subsidized Pricing','Comfortable Seating for 2000+']),
+        ('🚌','Transport',['50+ College Buses','GPS-Tracked Vehicles','Routes Across Chennai','Safe & Punctual']),
+        ('🏥','Medical Center',['On-Campus Health Center','Qualified Medical Staff','Ambulance Service','Tie-up with Hospitals']),
+        ('🌐','Digital Campus',['Smart Classrooms','ERP System','Digital Attendance','Online Learning Portal'])
+      ] %}
+      <div class="rec-card">
+        <div style="font-size:2.5rem;margin-bottom:16px">{{ icon }}</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:16px">{{ title }}</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+          {% for item in items %}
+          <li style="display:flex;align-items:center;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6)">
+            <i class="fas fa-check" style="color:#9333EA;font-size:.7rem;flex-shrink:0"></i> {{ item }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top:60px;text-align:center" data-aos="fade-up">
+      <h3 style="font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:12px">Experience It Yourself</h3>
+      <p style="color:rgba(255,255,255,.5);margin-bottom:24px">Schedule a campus visit or take our 360° virtual tour.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="{{ url_for('tour360') }}" class="btn-hero-primary" style="display:inline-flex"><i class="fas fa-vr-cardboard"></i> 360° Virtual Tour</a>
+        <a href="{{ url_for('contact') }}" class="btn-hero-secondary" style="display:inline-flex">Schedule Campus Visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

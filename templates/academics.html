@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Academics — REC{% endblock %}
+{% block content %}
+<div class="inner-hero">
+  <div class="hero-orb" style="width:400px;height:400px;background:rgba(107,33,168,.2);top:-100px;right:-100px;filter:blur(80px);position:absolute"></div>
+  <div class="container-fluid px-5" style="position:relative;z-index:1">
+    <div class="inner-hero-tag">📚 Academics</div>
+    <h1>World-Class <span class="text-gold">Academics</span></h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,.6);margin-top:12px;max-width:600px">NBA-accredited programs, expert faculty, and cutting-edge curriculum designed for tomorrow's engineers.</p>
+  </div>
+</div>
+
+<section style="padding:80px 0;background:var(--rec-dark)">
+  <div class="container-fluid px-5">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-tag"><i class="fas fa-graduation-cap"></i> Departments</div>
+      <h2 class="section-title">Our <span>Departments</span></h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px" data-aos="fade-up">
+      {% set depts = [
+        ('💻','Computer Science & Engineering','CSE','3000+ Students','NBA Accredited'),
+        ('📡','Electronics & Communication','ECE','2500+ Students','NBA Accredited'),
+        ('⚡','Electrical & Electronics','EEE','1500+ Students','NBA Accredited'),
+        ('⚙️','Mechanical Engineering','MECH','2000+ Students','NBA Accredited'),
+        ('🏗️','Civil Engineering','CIVIL','1200+ Students','NBA Accredited'),
+        ('🖥️','Information Technology','IT','1800+ Students','NBA Accredited'),
+        ('🤖','Artificial Intelligence & DS','AIDS','1000+ Students','New Program'),
+        ('🧠','AI & Machine Learning','AIML','800+ Students','New Program'),
+        ('💼','Master of Business Admin','MBA','500+ Students','AICTE Approved'),
+        ('🔬','Master of Computer Apps','MCA','400+ Students','AICTE Approved'),
+        ('📐','M.E. / M.Tech Programs','PG','600+ Students','Anna University'),
+        ('⚗️','Applied Sciences & Maths','ASM','Faculty Support','Core Department')
+      ] %}
+      {% for icon, name, abbr, students, tag in depts %}
+      <div class="rec-card" style="text-align:left">
+        <div style="font-size:2rem;margin-bottom:16px">{{ icon }}</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:#9333EA;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">{{ abbr }}</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:10px">{{ name }}</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.5)">{{ students }}</div>
+        <div style="display:inline-block;margin-top:10px;background:rgba(107,33,168,.15);border:1px solid rgba(107,33,168,.3);color:#C084FC;padding:3px 10px;border-radius:50px;font-size:.65rem;font-family:'Space Grotesk',sans-serif;font-weight:600">{{ tag }}</div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="divider-purple my-5"></div>
+    <div class="row g-4 align-items-center" data-aos="fade-up">
+      <div class="col-lg-6">
+        <div class="section-tag"><i class="fas fa-book-open"></i> Curriculum</div>
+        <h2 class="section-title">Industry-Aligned <span>Curriculum</span></h2>
+        <p style="color:rgba(255,255,255,.6);line-height:1.9">REC follows Anna University syllabus enhanced with value-added courses, industry certifications, hackathons, and live project experiences.</p>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+          {% for item in ['Choice-Based Credit System (CBCS)','MOOCs & NPTEL Integration','Industry-Sponsored Labs','Live Project Programs','Entrepreneurship Cell (IIIC)','Foreign Language Electives'] %}
+          <div style="display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-size:.85rem;color:rgba(255,255,255,.7)">
+            <i class="fas fa-check-circle" style="color:#9333EA"></i> {{ item }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div style="background:rgba(107,33,168,.08);border:1px solid rgba(107,33,168,.2);border-radius:20px;padding:32px">
+          <h5 style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;margin-bottom:20px">Academic Highlights</h5>
+          {% for stat, label in [('550+','Expert Faculty Members'),('50+','Research Centers'),('100+','Patents Filed'),('500+','Publications Annually'),('15+','Industry MoUs'),('24/7','Digital Library Access')] %}
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07)">
+            <span style="font-size:.88rem;color:rgba(255,255,255,.6)">{{ label }}</span>
+            <span style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;background:linear-gradient(135deg,#F59E0B,#FCD34D);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ stat }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
